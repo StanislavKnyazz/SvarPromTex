@@ -79,21 +79,6 @@ a {
 }
 
 /* ============================================
-   АДАПТИВ — ЛОГОТИП
-   ============================================ */
-@media (max-width: 768px) {
-    .logo-img {
-        height: 36px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo-img {
-        height: 30px;
-    }
-}
-
-/* ============================================
    ХЕДЕР
    ============================================ */
 .header {
@@ -337,6 +322,42 @@ a {
     text-shadow: 0 2px 20px rgba(0,0,0,0.5);
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.hero-dots {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 10px;
+}
+
+.hero-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.hero-dots .dot.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    transform: scale(1.2);
+}
+
+.hero-dots .dot:hover {
+    background: rgba(255,255,255,0.25);
+}
+
 /* ============================================
    КНОПКИ
    ============================================ */
@@ -457,42 +478,6 @@ a {
 
 .btn-secondary:hover .arrow {
     transform: translateX(4px);
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-}
-
-.hero-dots {
-    position: absolute;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    display: flex;
-    gap: 10px;
-}
-
-.hero-dots .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.12);
-    border: 2px solid transparent;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.hero-dots .dot.active {
-    background: var(--gold);
-    border-color: var(--gold);
-    transform: scale(1.2);
-}
-
-.hero-dots .dot:hover {
-    background: rgba(255,255,255,0.25);
 }
 
 /* ============================================
@@ -761,6 +746,60 @@ a {
 }
 
 /* ============================================
+   СТРАНИЦЫ (CONTACT, PORTFOLIO, PRIVACY, CONSENT)
+   ============================================ */
+.page-section {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 120px 40px 80px;
+}
+
+.document-content {
+    max-width: 820px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 48px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.8;
+}
+
+.document-content h3 {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 28px;
+    margin-bottom: 10px;
+}
+
+.document-content h3:first-of-type {
+    margin-top: 0;
+}
+
+.document-content p {
+    margin-bottom: 12px;
+}
+
+.document-content ul {
+    padding-left: 24px;
+    margin-bottom: 16px;
+}
+
+.document-content ul li {
+    margin-bottom: 6px;
+}
+
+.document-content a {
+    color: #b8953a;
+    text-decoration: none;
+}
+
+.document-content a:hover {
+    color: #d4b15a;
+}
+
+/* ============================================
    АНИМАЦИИ
    ============================================ */
 .fade-up {
@@ -789,6 +828,9 @@ a {
     }
     .section {
         padding: 60px 30px;
+    }
+    .page-section {
+        padding: 100px 30px 60px;
     }
 }
 
@@ -852,11 +894,22 @@ a {
 
     .footer-inner {
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        gap: 24px;
     }
 
     .section {
         padding: 48px 20px;
+    }
+
+    .page-section {
+        padding: 100px 20px 60px;
+    }
+
+    .document-content {
+        padding: 28px 20px;
+    }
+    .document-content h3 {
+        font-size: 16px;
     }
 
     .footer {
@@ -866,6 +919,10 @@ a {
     .footer-legal-inner {
         font-size: 10px;
         gap: 2px 12px;
+    }
+
+    .footer-legal-small {
+        font-size: 9px;
     }
 }
 
@@ -911,6 +968,14 @@ a {
 
     .section {
         padding: 36px 16px;
+    }
+
+    .page-section {
+        padding: 80px 16px 40px;
+    }
+
+    .document-content {
+        padding: 20px 16px;
     }
 
     .footer-legal-inner {

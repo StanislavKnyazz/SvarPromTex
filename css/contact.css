@@ -1,13 +1,6 @@
-<<<<<<< HEAD
 /* ============================================
    КОНТАКТЫ — СТРАНИЦА
    ============================================ */
-.page-section {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 120px 40px 80px;
-}
-
 .contact-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -19,9 +12,6 @@
     margin-top: 12px;
 }
 
-/* ============================================
-   ЛЕВАЯ КОЛОНКА — КОНТАКТЫ
-   ============================================ */
 .contact-info h3 {
     font-size: 22px;
     font-weight: 700;
@@ -71,9 +61,6 @@
     font-weight: 500;
 }
 
-/* ============================================
-   ПРАВАЯ КОЛОНКА — ФОРМА
-   ============================================ */
 .contact-form .form-group {
     margin-bottom: 16px;
 }
@@ -137,23 +124,17 @@
 }
 
 /* ============================================
-   АДАПТИВ
+   АДАПТИВ CONTACT
    ============================================ */
 @media (max-width: 768px) {
-    .page-section {
-        padding: 100px 20px 60px;
-    }
-
     .contact-wrapper {
         grid-template-columns: 1fr;
         padding: 28px 20px;
         gap: 30px;
     }
-
     .contact-item .value {
         font-size: 14px;
     }
-
     .contact-form input,
     .contact-form textarea {
         padding: 12px 16px;
@@ -162,221 +143,22 @@
 }
 
 @media (max-width: 480px) {
-    .page-section {
-        padding: 80px 16px 40px;
-    }
-
     .contact-wrapper {
         padding: 20px 16px;
         border-radius: 6px;
     }
-
     .contact-info h3 {
         font-size: 19px;
     }
-
     .contact-item {
         margin-bottom: 14px;
         padding-bottom: 14px;
     }
-
     .contact-item .value {
         font-size: 13px;
     }
-
     .contact-form .btn-full {
         padding: 14px 28px;
         font-size: 14px;
     }
-=======
-/* ============================================
-   КОНТАКТЫ — СТРАНИЦА
-   ============================================ */
-.page-section {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 120px 40px 80px;
-}
-
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    background: #141414;
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 8px;
-    padding: 48px;
-    margin-top: 12px;
-}
-
-/* ============================================
-   ЛЕВАЯ КОЛОНКА — КОНТАКТЫ
-   ============================================ */
-.contact-info h3 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 24px;
-    color: #ffffff;
-}
-
-.contact-item {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.contact-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.contact-item .label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #b8953a;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 4px;
-}
-
-.contact-item .value {
-    font-size: 15px;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.6;
-}
-
-.contact-item .value a {
-    color: rgba(255,255,255,0.65);
-    transition: 0.3s ease;
-}
-
-.contact-item .value a:hover {
-    color: #b8953a;
-}
-
-.contact-note .value {
-    color: #b8953a;
-    font-weight: 500;
-}
-
-/* ============================================
-   ПРАВАЯ КОЛОНКА — ФОРМА
-   ============================================ */
-.contact-form .form-group {
-    margin-bottom: 16px;
-}
-
-.contact-form label {
-    display: block;
-    font-size: 12px;
-    font-weight: 500;
-    color: rgba(255,255,255,0.35);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 5px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 14px 18px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 8px;
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
-    transition: 0.3s ease;
-    color: #ffffff;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: rgba(255,255,255,0.25);
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: #b8953a;
-    background: rgba(255,255,255,0.06);
-    box-shadow: 0 0 0 4px rgba(184,149,58,0.06);
-}
-
-.contact-form textarea {
-    height: 100px;
-    resize: vertical;
-}
-
-.contact-form .btn-full {
-    width: 100%;
-    text-align: center;
-    border-radius: 8px;
-    padding: 16px 38px;
-    font-size: 15px;
-    margin-top: 4px;
-}
-
-.contact-form .form-hint {
-    text-align: center;
-    font-size: 12px;
-    color: rgba(255,255,255,0.25);
-    margin-top: 12px;
-    letter-spacing: 0.3px;
-}
-
-/* ============================================
-   АДАПТИВ
-   ============================================ */
-@media (max-width: 768px) {
-    .page-section {
-        padding: 100px 20px 60px;
-    }
-
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-        padding: 28px 20px;
-        gap: 30px;
-    }
-
-    .contact-item .value {
-        font-size: 14px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        padding: 12px 16px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .page-section {
-        padding: 80px 16px 40px;
-    }
-
-    .contact-wrapper {
-        padding: 20px 16px;
-        border-radius: 6px;
-    }
-
-    .contact-info h3 {
-        font-size: 19px;
-    }
-
-    .contact-item {
-        margin-bottom: 14px;
-        padding-bottom: 14px;
-    }
-
-    .contact-item .value {
-        font-size: 13px;
-    }
-
-    .contact-form .btn-full {
-        padding: 14px 28px;
-        font-size: 14px;
-    }
->>>>>>> e866a20137e1c273b0c71098c0016ce373ce88ab
 }
