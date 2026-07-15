@@ -164,4 +164,93 @@
         padding: 14px 28px;
         font-size: 14px;
     }
+    /* ============================================
+    УВЕДОМЛЕНИЕ ОБ ОТПРАВКЕ
+    ============================================ */
+    .form-notification {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(4px);
+    }
+
+    .form-notification.active {
+        display: flex;
+    }
+
+    .notification-content {
+        background: #1a1a1a;
+        padding: 40px 48px;
+        border-radius: 12px;
+        text-align: center;
+        max-width: 400px;
+        border: 1px solid rgba(184, 149, 58, 0.2);
+        animation: notificationFadeIn 0.3s ease;
+    }
+
+    @keyframes notificationFadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .notification-icon {
+        font-size: 48px;
+        margin-bottom: 12px;
+    }
+
+    .notification-content h3 {
+        color: #ffffff;
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+
+    .notification-content p {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    .notification-close {
+        background: var(--gold);
+        color: #0a0a0a;
+        border: none;
+        padding: 10px 32px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .notification-close:hover {
+        background: var(--gold-light);
+        transform: translateY(-2px);
+    }
+
+    /* ============================================
+    АДАПТИВ
+    ============================================ */
+    @media (max-width: 480px) {
+        .notification-content {
+            padding: 28px 20px;
+            margin: 0 16px;
+        }
+        .notification-content h3 {
+            font-size: 18px;
+        }
+    }
 }
