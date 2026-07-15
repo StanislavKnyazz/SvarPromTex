@@ -100,25 +100,22 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #7B3DFF;
-    transition: all 0.3s ease;
     flex-shrink: 0;
     text-decoration: none;
+    width: 25px;
+    height: 25px;
 }
 
 .header-max:hover {
     transform: scale(1.1);
-    box-shadow: 0 4px 20px rgba(123, 61, 255, 0.4);
 }
 
 .header-max-icon {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) invert(1);
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
     display: block;
+    border-radius: 50%;
 }
 
 /* ============================================
@@ -141,6 +138,76 @@ a {
     margin-top: 4px !important;
     line-height: 1.4 !important;
     max-width: 100% !important;
+}
+
+/* ============================================
+   ФУТЕР — 5 КОЛОНОК
+   ============================================ */
+.footer-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1.2fr;
+    gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.footer-map-col h5 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.footer-map {
+    margin-top: 0;
+}
+
+.footer-map iframe {
+    width: 100%;
+    height: 120px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-map p {
+    font-size: 11px !important;
+    color: var(--text-muted) !important;
+    margin-top: 4px !important;
+    line-height: 1.4 !important;
+    max-width: 100% !important;
+}
+
+/* ============================================
+   ЗАЩИТА ОТ КОПИРОВАНИЯ
+   ============================================ */
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+img {
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+    user-drag: none;
+    pointer-events: auto;
+}
+
+img {
+    -webkit-touch-callout: none;
+}
+
+input, textarea, .nav-menu, .hero-content {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
 }
 
 /* ============================================
@@ -718,16 +785,6 @@ a {
     border-top: 1px solid var(--border);
 }
 
-.footer-inner {
-    max-width: 1240px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 32px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-}
-
 .footer-brand p {
     font-size: 14px;
     color: var(--text-muted);
@@ -935,6 +992,17 @@ a {
     .page-section {
         padding: 100px 30px 60px;
     }
+
+    .footer-inner {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    }
+    .footer-map-col {
+        grid-column: 1 / -1;
+        margin-top: 4px;
+    }
+    .footer-map iframe {
+        height: 100px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -997,7 +1065,16 @@ a {
 
     .footer-inner {
         grid-template-columns: 1fr 1fr;
-        gap: 24px;
+        gap: 20px;
+    }
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+    .footer-map-col {
+        grid-column: 1 / -1;
+    }
+    .footer-map iframe {
+        height: 80px;
     }
 
     .section {
@@ -1041,8 +1118,8 @@ a {
         height: 36px;
     }
     .header-max-icon {
-        width: 20px;
-        height: 20px;
+        width: 36px;
+        height: 36px;
     }
     .footer-map iframe {
         height: 100px;
@@ -1088,6 +1165,15 @@ a {
         grid-template-columns: 1fr;
         gap: 16px;
     }
+    .footer-brand {
+        grid-column: 1;
+    }
+    .footer-map-col {
+        grid-column: 1;
+    }
+    .footer-map iframe {
+        height: 80px;
+    }
 
     .section {
         padding: 36px 16px;
@@ -1123,8 +1209,8 @@ a {
         height: 32px;
     }
     .header-max-icon {
-        width: 18px;
-        height: 18px;
+        width: 32px;
+        height: 32px;
     }
     .footer-map iframe {
         height: 80px;

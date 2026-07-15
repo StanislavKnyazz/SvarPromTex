@@ -210,3 +210,13 @@ window.addEventListener('scroll', function() {
 backToTop.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+// ============================================
+// ЗАПРЕТ КОНТЕКСТНОГО МЕНЮ
+// ============================================
+document.addEventListener('contextmenu', function(e) {
+    // Запрещаем на изображениях
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+        return false;
+    }
+});
