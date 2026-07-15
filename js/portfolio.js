@@ -4,9 +4,6 @@
 (function() {
     var grid = document.getElementById('portfolioGrid');
 
-    // ==========================================
-    // МАССИВ С РАБОТАМИ — РЕДАКТИРУЙ ЗДЕСЬ
-    // ==========================================
     var works = [
         { img: 'img/portfolio/work-1.jpg', title: 'Изготовление буровых штанг', desc: '' },
         { img: 'img/portfolio/work-2.jpg', title: 'Сварка кронштейна для робота-краулера', desc: '' },
@@ -16,9 +13,6 @@
         { img: 'img/portfolio/work-6.jpg', title: 'Сварка кронштейна', desc: '' },
     ];
 
-    // ==========================================
-    // ГЕНЕРАЦИЯ КАРТОЧЕК
-    // ==========================================
     if (grid) {
         works.forEach(function(work, index) {
             var item = document.createElement('div');
@@ -38,16 +32,12 @@
             item.appendChild(overlay);
             grid.appendChild(item);
 
-            // Клик для зума
             item.addEventListener('click', function() {
                 openZoom(work.img, work.title, work.desc);
             });
         });
     }
 
-    // ==========================================
-    // ЗУМ — ОТКРЫТИЕ
-    // ==========================================
     function openZoom(src, title, desc) {
         var modal = document.getElementById('zoomModal');
         var image = document.getElementById('zoomImage');
@@ -64,9 +54,6 @@
         document.body.style.overflow = 'hidden';
     }
 
-    // ==========================================
-    // ЗУМ — ЗАКРЫТИЕ ПО КЛИКУ НА ФОН
-    // ==========================================
     var modal = document.getElementById('zoomModal');
     if (modal) {
         modal.addEventListener('click', function(e) {
@@ -76,9 +63,6 @@
         });
     }
 
-    // ==========================================
-    // ЗУМ — ЗАКРЫТИЕ ПО ESC
-    // ==========================================
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closeZoom();
@@ -92,5 +76,4 @@
             document.body.style.overflow = '';
         }
     }
-
 })();

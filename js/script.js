@@ -30,18 +30,14 @@
 
             const img = new Image();
             img.onload = function() {
-                slide.style.backgroundImage = `
-                    url('${SLIDES_FOLDER}${i}.${EXT}')
-                `;
+                slide.style.backgroundImage = `url('${SLIDES_FOLDER}${i}.${EXT}')`;
                 loadedCount++;
                 if (i === 1 && loadedCount === 1) {
                     slide.classList.add('loaded');
                 }
             };
             img.onerror = function() {
-                slide.style.background = `
-                    linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)
-                `;
+                slide.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)';
                 console.warn('⚠️ Слайд ' + i + ' не загружен');
             };
             img.src = SLIDES_FOLDER + i + '.' + EXT;
@@ -199,97 +195,18 @@ fadeElements.forEach(function(el) {
 });
 
 // ============================================
-// ПОРТФОЛИО — ЗАГРУЗКА ИЗОБРАЖЕНИЙ
+// КНОПКА НАВЕРХ
 // ============================================
-(function() {
-    var grid = document.getElementById('portfolioGrid');
+var backToTop = document.getElementById('backToTop');
 
-    var works = [
-        { img: 'img/portfolio/work-1.jpg', title: 'Изготовлеие буровых штанг', desc:''},
-        { img: 'img/portfolio/work-2.jpg', title: 'Сварка кронштейна для робота-краулера', desc:''},
-        { img: 'img/portfolio/work-3.jpg', title: 'Сварка рамы для ЧПУ станка', desc:''},
-        { img: 'img/portfolio/work-4.jpg', title: 'Сварка рамы для ЧПУ станка', desc:''},
-        { img: 'img/portfolio/work-5.jpg', title: 'Сварка рамы', desc:''},
-        { img: 'img/portfolio/work-6.jpg', title: 'Сварка Кронштейна', desc:''}
-    ];
-
-    works.forEach(function(work, index) {
-        var item = document.createElement('div');
-        item.className = 'portfolio-item fade-up';
-        item.style.animationDelay = (index * 0.08) + 's';
-
-        var img = document.createElement('img');
-        img.src = work.img;
-        img.alt = work.title;
-        img.loading = 'lazy';
-
-        var overlay = document.createElement('div');
-        overlay.className = 'overlay';
-        overlay.innerHTML = '<h4>' + work.title + '</h4><span>' + work.desc + '</span>';
-
-        item.appendChild(img);
-        item.appendChild(overlay);
-        grid.appendChild(item);
-    });
-
-    document.querySelectorAll('.portfolio-item').forEach(function(el) {
-        observer.observe(el);
-    });
-})();
-
-// ============================================
-// ФОРМА — ВАЛИДАЦИЯ И ОТПРАВКА
-// ============================================
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    var name = document.getElementById('formName');
-    var phone = document.getElementById('formPhone');
-    var email = document.getElementById('formEmail');
-    var message = document.getElementById('formMessage');
-
-    var fields = [name, phone, email, message];
-    fields.forEach(function(field) {
-        field.style.borderColor = '';
-    });
-
-    var errors = [];
-
-    if (name.value.trim().length < 2) {
-        errors.push('Имя должно содержать минимум 2 символа');
-        name.style.borderColor = '#e74c3c';
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+    } else {
+        backToTop.classList.remove('visible');
     }
+});
 
-    var phoneClean = phone.value.replace(/[\s()-]/g, '');
-    if (!/^\+?\d{10,}$/.test(phoneClean)) {
-        errors.push('Введите корректный номер телефона (минимум 10 цифр)');
-        phone.style.borderColor = '#e74c3c';
-    }
-
-    if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-        errors.push('Введите корректный email');
-        email.style.borderColor = '#e74c3c';
-    }
-
-    if (message.value.trim().length < 5) {
-        errors.push('Опишите вашу задачу подробнее (минимум 5 символов)');
-        message.style.borderColor = '#e74c3c';
-    }
-
-    if (errors.length > 0) {
-        alert('⚠️ Пожалуйста, исправьте ошибки:\n\n• ' + errors.join('\n• '));
-        return;
-    }
-
-    var btn = this.querySelector('.btn-primary');
-    var originalText = btn.textContent;
-    btn.textContent = 'Отправка...';
-    btn.disabled = true;
-
-    setTimeout(function() {
-        alert('✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
-        document.getElementById('contactForm').reset();
-        btn.textContent = originalText;
-        btn.disabled = false;
-    }, 1200);
+backToTop.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });

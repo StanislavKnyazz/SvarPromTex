@@ -49,17 +49,32 @@ a {
 }
 
 /* ============================================
-   СКРОЛЛБАР
+   СКРОЛЛБАР — КРАСИВЫЙ
    ============================================ */
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
+    height: 8px;
 }
+
 ::-webkit-scrollbar-track {
     background: var(--dark);
+    border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb {
-    background: var(--gold);
-    border-radius: 3px;
+    background: linear-gradient(180deg, var(--gold), var(--gold-light));
+    border-radius: 4px;
+    border: 2px solid var(--dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-light);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold) var(--dark);
 }
 
 /* ============================================
@@ -76,6 +91,56 @@ a {
     height: 44px;
     width: auto;
     display: block;
+}
+
+/* ============================================
+   ИКОНКА MAX В ХЕДЕРЕ
+   ============================================ */
+.header-max {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #7B3DFF;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.header-max:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(123, 61, 255, 0.4);
+}
+
+.header-max-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+    display: block;
+}
+
+/* ============================================
+   МИНИ-КАРТА В ФУТЕРЕ
+   ============================================ */
+.footer-map {
+    margin-top: 8px;
+}
+
+.footer-map iframe {
+    width: 100%;
+    height: 120px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-map p {
+    font-size: 11px !important;
+    color: var(--text-muted) !important;
+    margin-top: 4px !important;
+    line-height: 1.4 !important;
+    max-width: 100% !important;
 }
 
 /* ============================================
@@ -800,6 +865,44 @@ a {
 }
 
 /* ============================================
+   КНОПКА НАВЕРХ
+   ============================================ */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: #0a0a0a;
+    border: none;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(184,149,58,0.3);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    background: var(--gold-light);
+    box-shadow: 0 8px 30px rgba(184,149,58,0.4);
+}
+
+.back-to-top:active {
+    transform: scale(0.95);
+}
+
+/* ============================================
    АНИМАЦИИ
    ============================================ */
 .fade-up {
@@ -924,6 +1027,26 @@ a {
     .footer-legal-small {
         font-size: 9px;
     }
+
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+
+    .header-max {
+        width: 36px;
+        height: 36px;
+    }
+    .header-max-icon {
+        width: 20px;
+        height: 20px;
+    }
+    .footer-map iframe {
+        height: 100px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -985,5 +1108,25 @@ a {
 
     .footer-legal-inner .sep {
         display: none;
+    }
+
+    .back-to-top {
+        bottom: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .header-max {
+        width: 32px;
+        height: 32px;
+    }
+    .header-max-icon {
+        width: 18px;
+        height: 18px;
+    }
+    .footer-map iframe {
+        height: 80px;
     }
 }
